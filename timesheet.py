@@ -5,7 +5,7 @@ from datetime import datetime
 import time
 import pickle # for long term storage
 
-filename = "testsheet.pickle"
+filename = "timesheet.pickle"
 
 # represents a shift of work. Has date and duration
 class Shift:
