@@ -41,18 +41,13 @@ if first_in == "s":
 
 # report mode
 elif first_in == "r":
-    # TODO select range of dates
-    range_in = input("(a)ll \n(r)ange \n> ")
-    while range_in not in ["r", "a"]:
-        range_in = input("invalid input \n(a)ll \n> ")
-    """
-    if range_in == "r":
-        start = input("start(d/m/yyyy): ")
-    """
     with open(filename, "rb") as in_file:
         sheet = pickle.load(in_file)
+    earned = 0
     for shift in sheet:
         print(shift.report())
+        earned += shift.hours * 14.05
+    print("total earned: " + str(earned))
 
 # override mode
 elif first_in == "o":
