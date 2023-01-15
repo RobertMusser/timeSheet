@@ -13,12 +13,8 @@ class Sheet:
     def addShift(self, newShift):
         for oldShift in self.shifts:
             if oldShift.date == newShift.date:
-                print("date collision!")
                 # collapse hours
-                print("new hours: " + str(newShift.hours))
-                print("old hours: " + str(oldShift.hours))
                 newShift.hours += oldShift.hours
-                print("new new hours: " + str(newShift.hours))
                 # remove dup shift
                 self.shifts.remove(oldShift)
         self.shifts.append(newShift)
