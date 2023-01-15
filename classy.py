@@ -1,6 +1,7 @@
 
 from datetime import datetime
 import time
+import pickle # for long term storage
 
 # represents an entrie sheet of shifts
 # handles colapsing multiple shifts from one day
@@ -12,11 +13,22 @@ class Sheet:
     def addShift(self, newShift):
         for oldShift in self.shifts:
             if oldShift.date == newShift.date:
+                print("date collision!")
                 # collapse hours
+                print("new hours: " + str(newShift.hours))
+                print("old hours: " + str(oldShift.hours))
                 newShift.hours += oldShift.hours
+                print("new new hours: " + str(newShift.hours))
                 # remove dup shift
                 self.shifts.remove(oldShift)
         self.shifts.append(newShift)
+
+    def report(self):
+        earned = 0
+        for s in self.shifts:
+            print(s.report())
+            earned += s.hours * 14.05
+        print("total earnings: " + str(earned))
 
 # represents a shift of work. Has date and duration
 class Shift:
