@@ -7,7 +7,7 @@ from classy import *
 import pickle as pickle # for long term storage
 import sys
 
-filename = "timesheet.pickle"
+filename = "janfeb.pickle"
 
 # gets the timesheet from bin file
 def myUnpickle(fn):
@@ -60,8 +60,8 @@ def main():
         while not minus_hours.replace(".", "").isnumeric():
             minus_hours = input("real numbers only: ") 
         # subtract minus hours from anywhere on the sheet
-        while minus_hours > 0:
-            sheet.shifts[0].hours -= minus_hours
+        while int(minus_hours) > 0:
+            sheet.shifts[0].hours -= int(minus_hours)
             # either we need to subtract from the next shift as well
             if sheet.shifts[0].hours < 0:
                 minus_hours = sheet.shifts[0].hours * -1
