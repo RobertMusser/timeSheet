@@ -7,7 +7,7 @@ from classy import *
 import pickle as pickle # for long term storage
 import sys
 
-filename = "janfeb.pickle"
+filename = "feb.pickle"
 
 # gets the timesheet from bin file
 def myUnpickle(fn):
